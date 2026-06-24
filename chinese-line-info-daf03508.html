@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 常来常新</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #fde9e0 0%, #fcdacd 45%, #facaba 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.4rem 1.2rem 3rem;
+      line-height: 1.7;
+      color: #3e2c25;
+    }
+
+    .page-card {
+      max-width: 820px;
+      width: 100%;
+      background: #fffcf9;
+      border-radius: 36px;
+      padding: 2.8rem 2.5rem 3.2rem;
+      box-shadow: 0 16px 40px rgba(110, 60, 45, 0.12), 0 4px 12px rgba(90, 50, 35, 0.06);
+      transition: box-shadow 0.2s ease;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 1.2rem 0.8rem 2rem;
+      }
+      .page-card {
+        padding: 2rem 1.5rem 2.4rem;
+        border-radius: 28px;
+      }
+    }
+
+    /* 文章标题 */
+    .essay-title {
+      font-size: 2.1rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      color: #412f27;
+      margin-bottom: 0.5rem;
+      border-left: 5px solid #eaa98b;
+      padding-left: 1.2rem;
+    }
+
+    @media (max-width: 480px) {
+      .essay-title {
+        font-size: 1.7rem;
+        padding-left: 0.9rem;
+      }
+    }
+
+    .sub-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.5rem;
+      align-items: baseline;
+      margin: 0.6rem 0 1.8rem 1.7rem;
+      color: #7a6055;
+      font-size: 0.9rem;
+    }
+    .sub-meta span {
+      background: #f3e3db;
+      padding: 0.1rem 0.8rem;
+      border-radius: 40px;
+    }
+
+    /* 导语 */
+    .lead {
+      font-size: 1.2rem;
+      background: #fdf4ee;
+      padding: 1.1rem 1.6rem;
+      border-radius: 24px;
+      margin-bottom: 2rem;
+      color: #4e362d;
+      border: 1px solid #f1d6ca;
+    }
+
+    /* 正文段落 */
+    .body-text p {
+      margin-bottom: 1.4rem;
+      text-align: justify;
+      font-size: 1.02rem;
+    }
+
+    .body-text p:last-of-type {
+      margin-bottom: 0.5rem;
+    }
+
+    /* 引用提示区块 */
+    .note-block {
+      background: #f6ece6;
+      border-radius: 28px;
+      padding: 1.4rem 1.8rem;
+      margin: 1.8rem 0 2rem;
+      border-left: 6px solid #dba58c;
+      font-style: normal;
+    }
+    .note-block strong {
+      color: #7b4d39;
+    }
+    .note-block .quote-sign {
+      font-size: 2rem;
+      line-height: 1;
+      color: #c28d74;
+      margin-right: 0.4rem;
+      vertical-align: middle;
+    }
+
+    /* 收藏&再次访问提醒 */
+    .visit-reminder {
+      background: #e8d9d0;
+      border-radius: 30px;
+      padding: 1rem 1.6rem;
+      margin: 1.6rem 0 1.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.8rem 1.2rem;
+    }
+    .visit-reminder .label {
+      font-weight: 500;
+      color: #4f3429;
+    }
+    .visit-reminder .tag {
+      background: #fff4ee;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #573c30;
+    }
+
+    /* 链接风格 —— 圆角按钮感 */
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .inline-link {
+      background: #f5e3da;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-weight: 500;
+      color: #4a3228;
+      transition: background 0.18s, box-shadow 0.18s;
+      display: inline-block;
+      white-space: nowrap;
+      border: 1px solid #e2c5b7;
+      font-size: 0.95rem;
+    }
+    .inline-link:hover {
+      background: #ebd3c6;
+      box-shadow: 0 2px 8px rgba(120, 65, 45, 0.12);
+      border-color: #d2ad9b;
+    }
+
+    /* 特色小卡片 (代替特点列表) */
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1rem;
+      margin: 1.4rem 0 1.8rem;
+    }
+    .feature-item {
+      background: #fff6f1;
+      border: 1px solid #edd9ce;
+      border-radius: 60px;
+      padding: 0.3rem 1.2rem;
+      font-size: 0.95rem;
+      color: #4f382e;
+    }
+
+    /* FAQ 摘要 */
+    .faq-mini {
+      margin: 2rem 0 1.2rem;
+      border-top: 2px dotted #e5cec2;
+      padding-top: 1.4rem;
+    }
+    .faq-mini details {
+      margin-bottom: 0.6rem;
+      border-radius: 40px;
+      background: #f9f1ec;
+      padding: 0.3rem 1.2rem 0.3rem 1.2rem;
+      transition: background 0.1s;
+    }
+    .faq-mini details[open] {
+      background: #f3e5dd;
+    }
+    .faq-mini summary {
+      font-weight: 500;
+      cursor: pointer;
+      padding: 0.5rem 0;
+      color: #4a342b;
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+    .faq-mini summary::before {
+      content: "▸";
+      margin-right: 0.6rem;
+      color: #b4836b;
+      font-size: 1.1rem;
+    }
+    .faq-mini details[open] summary::before {
+      content: "▾";
+    }
+    .faq-mini .faq-answer {
+      padding: 0.2rem 0 0.8rem 1rem;
+      color: #5e4438;
+    }
+
+    /* 脚注 */
+    .footer-note {
+      margin-top: 2.6rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #e5d3c9;
+      font-size: 0.9rem;
+      color: #7b6257;
+      text-align: center;
+    }
+    .footer-note a {
+      color: #5d3f32;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-card">
+    <!-- 文章标题 -->
+    <h1 class="essay-title">再次打开，像见老朋友</h1>
+    <div class="sub-meta">
+      <span>📌 常访笔记</span>
+      <span>☕ 收藏·关注</span>
+    </div>
+
+    <!-- 导语 -->
+    <div class="lead">
+      偶尔想起一个地方，点开书签，页面还在，内容也还在更新。<br>
+      这大概就是持续关注带来的踏实感。
+    </div>
+
+    <!-- 正文 -->
+    <div class="body-text">
+      <p>
+        去年秋天第一次发现 <a href="https://chinese-line-igame.com" class="inline-link">爱游戏</a>，是因为要找一款老游戏的攻略。当时页面很干净，没有铺天盖地的弹窗，就把网址存进了收藏夹。后来几次换设备，每次都要重新翻聊天记录找链接——直到养成习惯，把它固定在浏览器第一屏。
+      </p>
+      <p>
+        有阵子忙，两个多月没打开。再回来时发现界面做了微调，分类更顺手了，还多了几篇专题。那种感觉就像你常去的小店重新刷了墙，老板还认得你，笑着说“好久不见”。其实网站不会说话，但熟悉的结构、一致的更新节奏，本身就在传递一种秩序和诚意。
+      </p>
+      <p>
+        现在每周会上去瞄一眼。不一定玩新游戏，但看看有什么新角度、新评测，偶尔跟着推荐试试冷门作品，竟然挖到过好几颗遗珠。内容平台那么多，愿意持续打磨、不靠标题吸引眼球的，反而更值得留在订阅列表里。
+      </p>
+    </div>
+
+    <!-- 引用提示 -->
+    <div class="note-block">
+      <span class="quote-sign">“</span> 再忙也别忘了给喜欢的地方留个书签。<strong>收藏不是终点，再次访问才是对话的开始。</strong>
+      <span class="quote-sign">”</span>
+    </div>
+
+    <!-- 再次访问 & 收藏提醒 -->
+    <div class="visit-reminder">
+      <span class="label">🔖 常访小记</span>
+      <span class="tag">📂 加入收藏夹</span>
+      <span class="tag">🔄 每两周回看</span>
+      <span class="tag">✉️ 关注更新</span>
+    </div>
+
+    <!-- 场景化特征 (用标签取代列表) -->
+    <div class="feature-grid">
+      <span class="feature-item">🎮 新游手记</span>
+      <span class="feature-item">📝 玩法拆解</span>
+      <span class="feature-item">🗂️ 旧作重温</span>
+      <span class="feature-item">📡 持续更新</span>
+      <span class="feature-item">🧩 同好交流</span>
+    </div>
+
+    <!-- FAQ 摘要（非完整列表，只取两三条） -->
+    <div class="faq-mini">
+      <details>
+        <summary>内容更新频率怎么样？</summary>
+        <div class="faq-answer">平均每周会有 2–3 篇新内容，专题和评测交替发布，偶尔会有整理合集。如果很久没看，可以按时间排序浏览。</div>
+      </details>
+      <details>
+        <summary>收藏夹里链接太多，怎么快速找到？</summary>
+        <div class="faq-answer">建议在浏览器书签栏单独建一个文件夹，命名为“爱游戏”或“常去”，把网址拖进去。手机端也可以添加到主屏幕，下次直接打开。</div>
+      </details>
+      <details>
+        <summary>为什么说“再次访问”比“第一次打开”更重要？</summary>
+        <div class="faq-answer">第一次可能是偶然，再次访问才是主动选择。持续关注能让你看到平台的沉淀和变化，也更容易发现那些需要时间才能显现的好内容。</div>
+      </details>
+    </div>
+
+    <!-- 访问句 / 结束语 -->
+    <div class="footer-note">
+      <p>下次打开浏览器，不妨在地址栏输入熟悉的网址——<a href="https://chinese-line-igame.com" class="inline-link">爱游戏</a>，看看它又带来了什么新故事。</p>
+      <p style="margin-top: 0.8rem; font-size: 0.85rem; opacity: 0.8;">© 页面仅作展示 · 常来常新</p>
+    </div>
+  </div>
+</body>
+</html>
