@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 中文游戏聚集地</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f3f4f6;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #2c3e50;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+        .page {
+            max-width: 1040px;
+            margin: 0 auto;
+        }
+
+        /* 卡片系统 */
+        .card {
+            background: #ffffff;
+            border: 1px solid #e6e8ec;
+            border-radius: 18px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 0, 0, 0.03);
+            padding: 2rem 1.8rem;
+            transition: box-shadow 0.2s ease;
+        }
+        .card + .card {
+            margin-top: 1.8rem;
+        }
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04), 0 3px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Hero 区 */
+        .hero {
+            text-align: center;
+            padding: 3.2rem 1.8rem;
+            background: #ffffff;
+            border: 1px solid #e6e8ec;
+            border-radius: 24px;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.02);
+            margin-bottom: 1.8rem;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: #1a2634;
+            margin-bottom: 0.6rem;
+        }
+        .hero h1 span {
+            color: #3070b0;
+        }
+        .hero .sub {
+            font-size: 1.2rem;
+            max-width: 640px;
+            margin: 0.8rem auto 1.2rem;
+            color: #546e7a;
+            font-weight: 350;
+        }
+        .hero .tagline {
+            display: inline-block;
+            background: #eef2f9;
+            color: #2b4d71;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            border: 1px solid #d6dfea;
+        }
+
+        /* 优势区网格 */
+        .grid-adv {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+            margin-top: 0.4rem;
+        }
+        .grid-adv .item {
+            background: #fafbfc;
+            border-radius: 14px;
+            padding: 1.2rem 1rem;
+            border: 1px solid #eaeef2;
+        }
+        .grid-adv .item h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.2rem;
+            color: #1d3557;
+        }
+        .grid-adv .item p {
+            font-size: 0.9rem;
+            color: #4d6575;
+        }
+
+        /* 说明区 */
+        .explain-text {
+            font-size: 1rem;
+            margin: 0.6rem 0 0.8rem;
+        }
+        .explain-text p {
+            margin-bottom: 0.7rem;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+            margin-top: 0.8rem;
+        }
+        .faq-mini .q {
+            font-weight: 500;
+            color: #1f3a4b;
+            font-size: 1rem;
+        }
+        .faq-mini .a {
+            margin-top: -0.3rem;
+            padding-left: 0.2rem;
+            border-left: 3px solid #b0c4d9;
+            padding-left: 0.9rem;
+            color: #3c5a6b;
+            font-size: 0.95rem;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: baseline;
+            gap: 0.8rem 2rem;
+            padding: 1.8rem 0 0.2rem;
+            border-top: 1px solid #dbe0e5;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+        .footer-links a {
+            color: #2b5b84;
+            text-decoration: none;
+            border-bottom: 1px dotted #9bb3c9;
+        }
+        .footer-links a:hover {
+            border-bottom: 1px solid #2b5b84;
+        }
+        .inline-link {
+            color: #2b5b84;
+            text-decoration: none;
+            border-bottom: 1px dotted #9bb3c9;
+        }
+        .inline-link:hover {
+            border-bottom: 1px solid #2b5b84;
+        }
+
+        .note {
+            text-align: center;
+            color: #6b7f8b;
+            font-size: 0.85rem;
+            margin-top: 2rem;
+            border-top: 1px solid #e0e5ea;
+            padding-top: 1.2rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.6rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .card {
+                padding: 1.4rem 1.2rem;
+            }
+            .grid-adv {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.8rem;
+            }
+            .footer-links {
+                gap: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+        @media (max-width: 400px) {
+            .grid-adv {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero -->
+    <div class="hero">
+        <h1><span>爱游戏</span> · 中文游戏入口</h1>
+        <div class="sub">如果你正在找汇集中文游戏资源、社区交流和资讯速递的地方，这里是一个安静的起点。</div>
+        <span class="tagline">不花哨 · 不绕路 · 自然聚合</span>
+    </div>
+
+    <!-- 优势区 卡片 -->
+    <div class="card">
+        <h2 style="font-weight: 450; font-size: 1.2rem; margin-bottom: 0.6rem; color: #1f3a4b;">它擅长什么</h2>
+        <div class="grid-adv">
+            <div class="item">
+                <h3>📖 游戏索引</h3>
+                <p>按品类、热度、平台整理，不堆砌，方便你快速浏览。</p>
+            </div>
+            <div class="item">
+                <h3>💬 社区脉络</h3>
+                <p>讨论、攻略、组队帖都集中在一处，省去跳转多个论坛的麻烦。</p>
+            </div>
+            <div class="item">
+                <h3>📡 资讯浓缩</h3>
+                <p>版本更新、新游预告、活动日历，用简短摘要覆盖重点。</p>
+            </div>
+            <div class="item">
+                <h3>🔧 工具辅助</h3>
+                <p>汉化补丁、帧率优化、存档管理，常见需求都有对应入口。</p>
+            </div>
+        </div>
+        <p style="margin-top: 0.8rem; font-size: 0.9rem; color: #4a6272;">以上功能持续完善，不做夸大，只为让使用体验更直接。</p>
+    </div>
+
+    <!-- 说明区 -->
+    <div class="card">
+        <h2 style="font-weight: 450; font-size: 1.2rem; margin-bottom: 0.4rem; color: #1f3a4b;">这个网站是做什么的</h2>
+        <div class="explain-text">
+            <p>很多人第一次打开 <a href="https://chinese-hub-igame.com" class="inline-link">爱游戏</a> 会想：这只是一个导航站吗？其实不止。它更像一个轻量的中文游戏聚合台——把分散在各处的资源、讨论、工具收拢到一起，用相对干净的界面呈现。</p>
+            <p>没有自动播放的视频，没有弹窗推荐，也没有铺满屏幕的广告位。你看到的是分类卡片、简洁列表和一个搜索框。从独立游戏到热门网游，从新游预约到汉化补丁，都可以在这里找到对应的落脚点。</p>
+            <p>对于刚接触某个游戏，或者想快速了解中文社区动向的人来说，它降低了信息筛选的成本。网站本身不托管游戏文件，只做索引和指引。</p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="card">
+        <h2 style="font-weight: 450; font-size: 1.2rem; margin-bottom: 0.2rem; color: #1f3a4b;">常见疑问（简短版）</h2>
+        <div class="faq-mini">
+            <div>
+                <div class="q">Q：资源都是官方来源吗？</div>
+                <div class="a">网站收录的大部分链接指向官方商店、Steam、Epic、官方网站或经过验证的社区帖子。少部分为玩家自制内容，页面会有标注。</div>
+            </div>
+            <div>
+                <div class="q">Q：需要注册才能用吗？</div>
+                <div class="a">不需要。浏览和搜索完全开放。评论或发布内容才需要简单的帐号绑定。</div>
+            </div>
+            <div>
+                <div class="q">Q：内容更新频率如何？</div>
+                <div class="a">资讯版块每天更新，索引库每周增量刷新。节假日可能会缓更，但会提前说明。</div>
+            </div>
+        </div>
+        <p style="margin-top: 0.8rem; font-size: 0.9rem; color: #4e6b7d;">更多问题可以访问 <a href="https://chinese-hub-igame.com" class="inline-link">爱游戏</a> 的帮助页，那里有详细说明。</p>
+    </div>
+
+    <!-- 底部 + 链接 -->
+    <div class="footer-links">
+        <span><a href="https://chinese-hub-igame.com">爱游戏</a></span>
+        <span><a href="#">游戏分类</a></span>
+        <span><a href="#">新游日历</a></span>
+        <span><a href="#">社区热帖</a></span>
+        <span><a href="#">关于本站</a></span>
+    </div>
+
+    <div class="note">
+        <span>一个尝试更清晰的中文游戏索引 · 非商业独立站点</span>
+    </div>
+
+</div>
+</body>
+</html>
