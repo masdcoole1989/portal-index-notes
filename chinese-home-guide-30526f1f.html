@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 简明指南与访问提醒</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #f5f7fa;
+      color: #1e293b;
+      line-height: 1.7;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* 深色头图 */
+    .hero {
+      background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+      color: #e2e8f0;
+      padding: 4rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -30%;
+      left: -10%;
+      width: 60%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.8rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #94a3b8;
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 浅色正文区 */
+    .content {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+      flex: 1;
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-top: 2.8rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid #e2e8f0;
+      display: inline-block;
+    }
+
+    .section-title:first-of-type {
+      margin-top: 0.2rem;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+    }
+
+    /* 强调色用于链接 */
+    a {
+      color: #2563eb;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+      font-weight: 500;
+    }
+
+    a:hover {
+      color: #1d4ed8;
+      border-bottom-color: #1d4ed8;
+    }
+
+    /* 卡片区域——特点与场景 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 1.8rem 0 1.2rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.5rem 1.2rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 6px 16px rgba(0, 0, 0, 0.04);
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #0f172a;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #475569;
+      margin-bottom: 0;
+    }
+
+    /* FAQ摘要 */
+    .faq-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .faq-question {
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-answer {
+      color: #475569;
+      padding-left: 0.6rem;
+      border-left: 3px solid #e2e8f0;
+      padding-left: 1rem;
+    }
+
+    /* 可信提示块 */
+    .notice-box {
+      background: #f1f5f9;
+      border-radius: 12px;
+      padding: 1.3rem 1.5rem;
+      margin: 2rem 0 1.5rem;
+      border-left: 4px solid #6366f1;
+    }
+
+    .notice-box p {
+      margin-bottom: 0.4rem;
+    }
+
+    .notice-box strong {
+      color: #0f172a;
+    }
+
+    /* 页脚 */
+    .footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.85rem;
+      color: #64748b;
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .hero .sub {
+        font-size: 1rem;
+      }
+      .content {
+        padding: 1.8rem 1rem 3rem;
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      .section-title {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        padding: 5rem 2rem 4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <h1>爱游戏 · 简明指南</h1>
+    <p class="sub">从日常娱乐到深度体验，找到属于你的节奏</p>
+  </header>
+
+  <main class="content">
+
+    <!-- 摘要 / 介绍 -->
+    <h2 class="section-title">关于这个站点</h2>
+    <p>
+      <strong>爱游戏</strong> 是一个聚焦游戏内容与实用信息的轻量平台。无论你是偶尔放松的休闲玩家，还是热衷探索新作品的爱好者，这里都提供经过整理的参考资源。我们坚持清晰、克制的呈现，帮助你在兴趣与理性之间找到舒适的平衡。
+    </p>
+
+    <!-- 亮点 / 特点卡片 -->
+    <h2 class="section-title">几个特点</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>🎯 精炼信息</h3>
+        <p>避免信息过载，每篇内容聚焦核心要点，节省筛选时间。</p>
+      </div>
+      <div class="card">
+        <h3>📚 多元视角</h3>
+        <p>涵盖类型推荐、操作技巧与背景介绍，适配不同偏好。</p>
+      </div>
+      <div class="card">
+        <h3>🕹️ 场景友好</h3>
+        <p>无论通勤、睡前还是周末闲暇，都能找到对应的内容建议。</p>
+      </div>
+      <div class="card">
+        <h3>🔒 访问透明</h3>
+        <p>所有推荐与指引均标注来源或说明，不夸大不隐瞒。</p>
+      </div>
+    </div>
+
+    <!-- 使用建议 / 场景说明 -->
+    <h2 class="section-title">使用建议</h2>
+    <p>
+      如果你是第一次来到 <a href="https://chinese-home-igame.com">爱游戏</a>，建议先从“新手索引”或“本周精选”区域开始浏览。这里的内容按照实用程度排列，并用简短标签标明适合哪类玩家。比如“短时体验”适合碎片时间，“深度拆解”适合想要系统了解的读者。
+    </p>
+    <p>
+      另外，每个页面底部都会提供相关话题的链接，方便你顺藤摸瓜，不迷失在多层跳转中。如果遇到不熟悉的概念或术语，站点内附有简明的词条解释（通常在文章侧边或末尾）。
+    </p>
+
+    <!-- 可信访问说明 -->
+    <div class="notice-box">
+      <p><strong>📋 访问说明</strong></p>
+      <p>本网站不收集不必要的个人信息，不嵌入第三方追踪脚本。所有外部链接均标注目标域名，你可以自行决定是否跳转。内容中提到的游戏版本、活动日期等时效性信息会尽量标注更新时间，但建议以官方渠道为准。</p>
+      <p>若发现链接失效或信息过时，欢迎通过站内反馈入口提醒我们修正。</p>
+    </div>
+
+    <!-- FAQ 摘要（精简但实用） -->
+    <h2 class="section-title">常见疑问摘要</h2>
+
+    <div class="faq-item">
+      <div class="faq-question">Q：内容更新频率如何？</div>
+      <div class="faq-answer">通常每周更新 2–3 篇主题文章，不定期发布特辑或整合列表。节假日期间可能会有调整。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Q：是否需要注册或登录？</div>
+      <div class="faq-answer">完全不需要。所有文章和工具均可直接阅读和使用。部分互动功能（如收藏、评论）目前暂未开放。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Q：推荐内容是否有偏向？</div>
+      <div class="faq-answer">我们优先考虑作品的代表性与可玩性，不接付费推广。每篇推荐末尾会注明推荐理由和可能的不足，供你自行判断。</div>
+    </div>
+
+    <!-- 再次以自然方式嵌入链接 -->
+    <p style="margin-top: 2rem;">
+      如果你希望从源头了解整体内容结构，可以直接前往 <a href="https://chinese-home-igame.com">爱游戏</a> 的主页浏览最新文章与分类导航。
+    </p>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 爱游戏 · 简明指南与访问提醒 · 内容仅供参考，请保持理性判断。</p>
+  </footer>
+
+</body>
+</html>
