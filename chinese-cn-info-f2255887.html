@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重访 · 爱游戏 · 产品说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #faf7f2;
+            font-family: 'Georgia', 'Times New Roman', 'Noto Serif SC', serif;
+            color: #2e2b26;
+            line-height: 1.75;
+            padding: 2.5rem 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 1.5rem 2.2rem;
+            border-bottom: 1px solid #e3dbd1;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #3a322c;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #7d7268;
+            border-top: 1px dashed #d9cfc3;
+            display: inline-block;
+            padding-top: 0.6rem;
+            margin-top: 0.2rem;
+        }
+
+        .intro-block {
+            background: #ffffffdc;
+            padding: 2rem 2rem 1.8rem;
+            border-left: 4px solid #b8a99a;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            margin-bottom: 2.8rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .intro-block p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .intro-block .sig {
+            font-size: 0.95rem;
+            color: #6b5f53;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 450;
+            border-bottom: 1px solid #ded3c8;
+            padding-bottom: 0.4rem;
+            margin: 2.5rem 0 1.4rem 0;
+            color: #3b312a;
+        }
+
+        .highlight-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin: 1.8rem 0 2.2rem;
+        }
+
+        .highlight-card {
+            flex: 1 1 220px;
+            background: #f7f1ea;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+            transition: background 0.2s;
+        }
+
+        .highlight-card:hover {
+            background: #efe7de;
+        }
+
+        .highlight-card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            color: #4d4139;
+        }
+
+        .highlight-card p {
+            font-size: 0.98rem;
+            color: #4d4239;
+        }
+
+        .usage-note {
+            background: #efe7dd;
+            padding: 1.8rem 2rem;
+            border-radius: 20px 8px 20px 8px;
+            margin: 2.2rem 0 2.8rem;
+            border: 1px solid #d9cec0;
+        }
+
+        .usage-note h2 {
+            font-size: 1.4rem;
+            font-weight: 450;
+            margin-bottom: 1rem;
+            color: #3d352e;
+        }
+
+        .usage-note ul {
+            padding-left: 1.2rem;
+            color: #3f3730;
+        }
+
+        .usage-note li {
+            margin-bottom: 0.6rem;
+        }
+
+        .faq-mini {
+            background: transparent;
+            margin: 2.5rem 0 2rem;
+            padding: 0.2rem 0 1rem;
+            border-top: 1px solid #e0d5c9;
+        }
+
+        .faq-mini details {
+            margin: 0.8rem 0;
+            padding: 0.4rem 0.6rem;
+            border-bottom: 1px dashed #d2c6b9;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #4a3f36;
+            font-size: 1.05rem;
+            padding: 0.3rem 0;
+        }
+
+        .faq-mini details p {
+            margin: 0.6rem 0 0.2rem 1.2rem;
+            color: #4f463d;
+            font-size: 0.98rem;
+        }
+
+        .access-tip {
+            background: #f3ede6;
+            padding: 1.2rem 1.8rem;
+            border-radius: 30px 6px 30px 6px;
+            margin: 2.2rem 0 1.8rem;
+            border-left: 3px solid #b3a08e;
+            font-size: 0.96rem;
+            color: #3d352e;
+        }
+
+        .access-tip strong {
+            font-weight: 600;
+        }
+
+        .cta-line {
+            text-align: center;
+            margin: 2.8rem 0 1.2rem;
+            padding: 1.2rem 0;
+            border-top: 1px solid #e2d7cb;
+            font-size: 1.1rem;
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ddd2c5;
+            font-size: 0.85rem;
+            color: #7a6e62;
+            text-align: center;
+        }
+
+        @media (max-width: 540px) {
+            body {
+                padding: 1.5rem 1rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .intro-block {
+                padding: 1.5rem;
+            }
+            .highlight-grid {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <h1>再次遇见 · 爱游戏</h1>
+        <div class="sub">收藏·重访·慢慢发现</div>
+    </div>
+
+    <div class="intro-block">
+        <p>有些去处，第一眼未必惊艳，但回头再看，却觉得安稳妥帖。<a href="https://chinese-cn-igame.com">爱游戏</a>便是这样一个地方——不喧哗，不催促，安静地聚拢着不少与游戏相关的内容与记录。它更像一个归档室，把值得留意的碎片收在一起，等你某天想起时，还能找到。</p>
+        <p>这里没有浮夸的排行榜，也没有频繁弹窗的推介。你看到的是经过筛选的条目、朴素的描述，以及一种“先让你看看，再决定要不要深入”的留白。对于习惯自己探索的玩家而言，这种克制反而让人放松。</p>
+        <div class="sig">—— 来自一位偶然重访的用户</div>
+    </div>
+
+    <h2 class="section-title">亮点 · 留得住的内容</h2>
+    <div class="highlight-grid">
+        <div class="highlight-card">
+            <h3>归类清晰</h3>
+            <p>无论你是对某个类型感兴趣，还是想回顾某段时期的作品，分类本身就已经是一种导航。不需要反复搜索，目录就在那里。</p>
+        </div>
+        <div class="highlight-card">
+            <h3>轻量叙述</h3>
+            <p>每一条内容都像是朋友间的简短推荐，没有夸张修辞，也不堆砌术语。读起来不累，反而容易留下印象。</p>
+        </div>
+        <div class="highlight-card">
+            <h3>持续沉淀</h3>
+            <p>不是一次性更新后就沉寂的站点。每隔一段时间再回去，总能看到一些补充或调整，像一本不断加页的手册。</p>
+        </div>
+    </div>
+
+    <div class="usage-note">
+        <h2>使用建议 · 怎样与它相处</h2>
+        <ul>
+            <li><strong>把链接放进书签</strong> —— 不需要每天看，但当你突然想找点什么打发时间，或者回忆某个老游戏时，它就在那儿。</li>
+            <li><strong>偶尔点开，慢慢浏览</strong> —— 不必抱着“必须发现宝藏”的心态。随便翻翻，也许某一页会让你停下来。</li>
+            <li><strong>把它当成辅助索引</strong> —— 遇到感兴趣的内容，可以顺着去了解更多。它给出起点，剩下的路你自己走。</li>
+        </ul>
+    </div>
+
+    <div class="faq-mini">
+        <h2 class="section-title" style="border-bottom: none; margin-bottom: 0.2rem;">FAQ 摘要</h2>
+        <details>
+            <summary>这里的“游戏”是指什么平台或类型？</summary>
+            <p>涵盖的范围比较杂，有主机上的经典作品，也有独立游戏和部分怀旧页游的记录。不会局限于单一平台，更像一个混编合集。你可以在<a href="https://chinese-cn-igame.com">爱游戏</a>里大致浏览分类，感受它的广度。</p>
+        </details>
+        <details>
+            <summary>内容会频繁变动吗？</summary>
+            <p>更新节奏不算快，但每次变化都像是细微的修订。有时是补充一段描述，有时是调整条目顺序。没有突然的大改，适合慢慢跟随。</p>
+        </details>
+        <details>
+            <summary>我需要注册或登录才能看吗？</summary>
+            <p>不需要。所有内容直接可见，没有会员墙或登录限制。它更像一个开放的笔记本，你随时可以翻看。</p>
+        </details>
+    </div>
+
+    <div class="access-tip">
+        <strong>📌 再次访问的简单方式</strong><br>
+        如果你已经来过一次，不妨把它留在收藏夹里。下次想找一个安静的、不扰人的游戏索引时，直接打开即可。没有推送，没有催促，只有它原本的样子。
+    </div>
+
+    <div class="cta-line">
+        <span>—— 你随时可以回到 <a href="https://chinese-cn-igame.com">爱游戏</a> ——</span>
+    </div>
+
+    <div class="footer-note">
+        <p>一份不赶时间的索引 · 献给习惯慢慢探索的人</p>
+        <p style="margin-top: 0.6rem; opacity: 0.6;">&copy; 记录与重访 · 内容说明页</p>
+    </div>
+
+</body>
+</html>
